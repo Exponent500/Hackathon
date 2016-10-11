@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="psychicApp" lang="en" class="ng-cloak"> 
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Psychic App</title>
+        <!-- bower:css -->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="bower_components/animate.css/animate.css" />
+        <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
+        <link rel="stylesheet" href="bower_components/magic/magic.min.css" />
+        <!-- endbower -->
+
+        <!-- inject:css -->
+        <link rel="stylesheet" href="/app/styles/main.css">
+        <!-- endinject -->  
+    </head>
+
+    <body class="background-image white-text" ng-controller="peopleInfoController as vm"> 
+        <div class="container">
+                <!-- Phone Number input -->
+                <form name="myForm" class="form-group col-xs-12" ng-class="{'has-error has-feedback': myForm.phoneNumber.$touched && myForm.phoneNumber.$invalid}">
+                    <label class="h1 font-carnival" for="phoneNumber">What's your phone number?</label>
+                    <div class="input-group">
+                        <input class="form-control" type="number" ng-model="vm.phoneNumber" name="phoneNumber" placeholder="No dashes please" ng-minlength = "10" ng-maxlength = "10" required>
+                        <span class="input-group-btn">
+                            <button class="btn btn-secondary black-text" type="button" ng-click="vm.getInfo(vm.phoneNumber)">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                            </button>
+                        </span>
+                    </div>
+                    <div class="h4" ng-messages="myForm.phoneNumber.$error" ng-show="myForm.phoneNumber.$touched" role="alert">
+                        <div class="animated fadeIn" ng-message="required"><strong>You haven't entered a name yet!</strong></div> 
+                        <div class="animated fadeIn" ng-message="minlength"><strong>Not enough characters entered!</strong></div>
+                        <div class="animated fadeIn" ng-message="maxlength"><strong>Too many characters entered!</strong></div>                         
+                    </div>
+                </form> 
+        </div>     
+
+        <!-- Message Output -->
+        <div class="font-carnival width col-xs-6 col-xs-offset-3">
+            <h1 id="showMessage" class="" ng-class="hide" ng-show="vm.showInfo"> {{vm.showMessage}} </h1>     
+        </div>
+
+        <!-- bower:js -->
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+        <script src="bower_components/angular-messages/angular-messages.js"></script>
+        <!-- endbower -->
+
+        <!-- inject:js -->
+        <script src="/app/app.module.js"></script>
+        <script src="/app/peopleInfo.controller.js"></script>
+        <script src="/app/peopleInfo.factory.js"></script>
+        <!-- endinject -->
+    </body>
+</html>

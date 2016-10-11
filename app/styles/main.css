@@ -1,0 +1,44 @@
+@font-face {
+	font-family: Carnevalee;
+	src: url('../img/Carnevalee Freakshow.ttf');
+}
+
+.font-carnival {
+	font-family: Carnevalee;
+}
+
+.container {
+    padding-top: 35px;
+}
+
+.ng-cloak {
+	display:none;
+}
+
+.background-image {
+	background-image: url('../img/crystalballbackground.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+
+.width  {
+	position: relative;
+	top: 32rem;
+}
+
+.white-text {
+	color: white;
+}
+
+.center {
+	text-align: center;
+/*	position: relative;
+	left: 0;
+	top: 50%;
+	width: 100%; */
+}
+
+.black-text {
+	color: black;
+}
